@@ -8,3 +8,5 @@ This project aims to learn how to use the Mern Stack by creating a book-store ap
 
 To use clone the repository
 and run `npm start` to serve the production app
+
+Next open your browser and go to `localhost:5555`
