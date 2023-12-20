@@ -8,12 +8,12 @@ import { Book } from './models/bookModel.js'
 
 const app = express();
 
+//Middleware for parsing request body
 app.use(express.json());
 
 app.get('/', (request, response) => {
     console.log(request);
     return response.status(234).send('Welcome To Mern Stack tutorial');
-    
 });
 
 // Route for Save a new Book
@@ -40,9 +40,21 @@ app.post('/books', async (request, responds) => {
 	return response.status(201).send(book);
 	
     } catch (error) {
+      console.log(error.message);
+      response.status(500).send({ message: error.message });
+    } 
+});
+
+//Route for Get All Books from Database
+app.get('/books', async (request, response ) => {
+    try {
+	const books = await Books.find({});
+
+	return response.status(200).json(books);
+    }   catch (error) {
 	console.log(error.message);
 	response.status(500).send({ message: error.message });
-    } 
+    }
 });
 
 mongoose
