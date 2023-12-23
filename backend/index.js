@@ -60,6 +60,45 @@ app.get('/books', async (request, response) => {
     }
 });
 
+//Route for Get All Books from Database by id
+app.get('/books/:id', async (request, response) => {
+    try {
+
+	const { id } = request.params;
+	
+        const book = await Book.findById({id});
+
+        return response.status(200).json(book);
+    }   catch (error) {
+        console.log(error.message);
+        response.status(500).send({ message: error.message });
+    }
+});
+
+//Route for update a Book
+app.put('/books/:id', async (request, response) => {
+    try {
+        if (
+            !request.body.title ||
+            !request.body.author ||
+	    !request.body.publishYear
+	) {
+            return response.status(400).send({
+                message: ' send all required fields; title, author, publishYear',
+	    });
+	}
+
+	const { id } = request.params
+
+	const result = await Book.findByIdAndUpdate();
+
+
+    }catch (error) {
+	 console.log(error.message);
+	 response.status(500).send({ message: error.message });
+    }
+});
+
 mongoose
     .connect(mongoDBURL)
     .then(() => {
