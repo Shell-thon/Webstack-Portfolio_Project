@@ -20,16 +20,24 @@ Node.js
 
 ## Backend
 Mongoose `npm install mongoose`
+-------------
 CORS Policy `npm cors`
+-----------------
 Express and Nodemon `npm i express nodemon`
+------------------------
 Notistack `npm i notistack`
 
 ## Frontend
 Create Vite Packages `npm create vite@latest`
+------------------
 Install modules    `npm i`
+---------------------------
 Tailwind css modules `npm install -D tailwindcss postcss autoprefixer`
+----------------------------------------
 Tailwind and Vite config `npx tailwindcss init -p`
+----------------------------------------------
 React icons `npm i axios react-icons`
+-------------------------------------------------
 React-Router `npm i react-router-dom`
 
 
